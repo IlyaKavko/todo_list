@@ -1,10 +1,11 @@
 import React from 'react';
+import TodoListItem from './ToboListItem';
 
 const TodoList = () => {
     return (
       <ul>
-        <li>1</li>
-        <li>2</li>
+        <li><TodoListItem/></li>
+        <li><TodoListItem/></li>
       </ul>
     );
 };
