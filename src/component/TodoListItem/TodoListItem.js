@@ -26,7 +26,7 @@ class ToboListItem extends React.Component {
         }
     
         return (
-            <div className="todo-list-iem">
+            <div className="todo-list-item">
                 <span className = { classNames } style={style} onClick={ this.onLabelClick }> { label } </span>
                 <button className="btn btn-outline-success btn-important"><i className="fa fa-star" aria-hidden="true"></i></button>
                 <button className="btn btn-outline-danger"><i className="fa fa-trash" aria-hidden="true"></i></button>
