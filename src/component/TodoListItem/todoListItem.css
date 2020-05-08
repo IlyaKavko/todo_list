@@ -7,3 +7,11 @@
     margin-left: auto;
     margin-right: .4rem;
 }
+
+.todo-list-lable {
+    cursor: pointer;
+}
+
+.todo-list-lable.done {
+    text-decoration: line-through;
+}
