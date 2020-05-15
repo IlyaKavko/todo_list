@@ -1,7 +1,20 @@
 import React from 'react';
 
-const AppHeader = () => {
-    return <h1>Todo list</h1>;
+import './appHeader.css';
+
+const AppHeader = (props) => {
+
+    const {toDo, done} = props
+
+    return (
+        <div className="AppHeader">
+            <h1>Todo list</h1>
+            <p className="todoCounter">
+                <span> to do - { toDo }</span>
+                <span> done - { done } </span>
+            </p>
+        </div>
+    );
 };
 
 export default AppHeader;
