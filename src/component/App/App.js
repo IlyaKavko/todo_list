@@ -34,7 +34,6 @@ class App extends React.Component {
   };
 
   addItem = (text) => {
-    console.log('hi');
     const item = {
       label: text,
       important: false,
@@ -70,17 +69,33 @@ class App extends React.Component {
   };
 
   ToggleImportant = (id) => {
-    console.log(id);
+    this.setState(( { todoData } ) => {
+      const index = todoData.findIndex((elem) => elem.id === id);
+
+      const oldObj = todoData[index];
+      const newObj = {...oldObj, important: !oldObj.important};
+
+      const newArr = [
+        ...todoData.slice(0, index),
+        newObj, 
+        ...todoData.slice(index + 1)
+      ];
+  
+      return {
+        todoData: newArr
+      }
+    });
   };
 
   render() {
 
     const done = this.state.todoData.filter((el) => el.done).length;
+    const toDo = this.state.todoData.length;
 
     return (
       <div className="App">
       <AppHeader 
-        toDo={3} 
+        toDo={toDo} 
         done={done}
       />
       <SearchBlock />
