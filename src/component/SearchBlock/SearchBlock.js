@@ -1,19 +1,31 @@
-import React from 'react';
+import React from "react";
 
 import "./searchBlock.css";
-import ItemStatusFilter from '../ItemStatusFilter'
 
-const SearchBlock = () => {
-    const SearchBlockText = 'What are you want to search';
-    return ( 
-        <div className="SearchBlock d-flex">
-        <input 
-            className="form-control mr-3" 
-            placeholder = { SearchBlockText } 
+class SearchBlock extends React.Component {
+  state = {
+    detectedText: "",
+  };
+
+  onSearchChange = (event) => {
+    const detectedText = event.target.value;
+    this.setState({ detectedText });
+    this.props.onSearchChange(detectedText);
+  };
+
+  render() {
+    const searchBlockText = "What are you want to search?";
+    return (
+      <div className="SearchBlock d-flex">
+        <input
+          className="form-control"
+          placeholder={searchBlockText}
+          value={this.state.detectedText}
+          onChange={this.onSearchChange}
         />
-        <ItemStatusFilter />
-        </div>
+      </div>
     );
-};
+  }
+}
 
 export default SearchBlock;
